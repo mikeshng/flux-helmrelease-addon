@@ -1,0 +1,24 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: helmrelease-controller
+  namespace: open-cluster-management
+  labels:
+    app: helmrelease-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helmrelease-controller
+  template:
+    metadata:
+      labels:
+        app: helmrelease-controller
+    spec:
+      serviceAccountName: helmrelease-sa
+      containers:
+      - name: helmrelease-controller
+        image: docker.io/mikeshng/helmrelease-addon:latest
+        imagePullPolicy: IfNotPresent
+        args:
+          - "controller"

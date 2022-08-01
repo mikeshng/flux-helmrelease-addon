@@ -1,0 +1,18 @@
+---
+apiVersion: work.open-cluster-management.io/v1
+kind: ManifestWork
+metadata:
+  name: work-nginx-ingress-01
+spec:
+  workload:
+    manifests:
+    - apiVersion: helm.fluxcd.io/v1
+      kind: HelmRelease
+      metadata:
+        name: nginx-ingress
+        namespace: default
+      spec:
+        chart:
+          repository: https://charts.helm.sh/stable/
+          name: nginx-ingress
+          version: 1.36.3

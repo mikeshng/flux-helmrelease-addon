@@ -1,0 +1,8 @@
+apiVersion: addon.open-cluster-management.io/v1alpha1
+kind: ClusterManagementAddOn
+metadata:
+  name: helmrelease
+spec:
+  addOnMeta:
+    displayName: HelmRelease
+    description: HelmRelease is a Flux HelmRelease add-on
